@@ -3,30 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
     <title>Login And Signup</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Login</h1>
-        <input class="em" type="email" placeholder="Email">
-        <br>
-        <input class="pwd" type="password" placeholder="Password">
-        <br>
-        <button>Login</button>
+        <header>Login</header>
+        <form action="#">
+            <div class="field">
+                <input class="em" type="email" placeholder="Email">
+            </div>
+            <div class="field">
+                <input class="pwd" type="password" placeholder="Password">
+                <i class="bx bx-hide eye-icon"></i>
+            </div>
+            <button>Login</button>
+        </form>
         <p>Don't have an account? <a href="#">Signup</a></p>
     </div>
-    <div class="container">
-        <h1>Signup</h1>
-        <input class="em" type="email" placeholder="Email">
-        <br>
-        <input class="pwd" type="password" placeholder="Password">
-        <br>
-        <input class="pwd" type="password" placeholder="Confirm Password">
-        <br>
-        <button>Signup</button>
+    <!-- <div class="container">
+        <header>Signup</header>
+        <form action="#">
+            <input class="em" type="email" placeholder="Email">
+            <br>
+            <input class="pwd" type="password" placeholder="Password">
+            <br>
+            <input class="pwd" type="password" placeholder="Confirm Password">
+            <br>
+            <button>Signup</button>
+        </form>
         <p>Already have an account? <a href="#">Login</a></p>
-    </div>
+    </div> -->
     <script src="script.js"></script>
 </body>
 </html>
