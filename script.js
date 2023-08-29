@@ -1,5 +1,7 @@
 // variables
 const eyeIcons = document.querySelectorAll('.eye-icon');
+const body = document.querySelector('body');
+const links = document.querySelectorAll('a');
 
 // eye icons
 eyeIcons.forEach(icon => {
@@ -22,3 +24,8 @@ eyeIcons.forEach(icon => {
 });
 
 // switch between login and signup
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        body.classList.toggle('switch');
+    });
+});
