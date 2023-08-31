@@ -46,6 +46,15 @@ signupBtn.addEventListener('click', () => {
     // if(checkInputs.every(input => input.innerText.length > 0))
     // console.log('not empty')
     const passwords = [...checkPasswords];
-    if(passwords.every(pwd => pwd.value === passwords[0].value))
-    console.log('check');
+    if(passwords.every(pwd => pwd.value === passwords[0].value && pwd.value.length > 0)){
+        password = passwords[0].value;
+        body.classList.toggle('switch');
+    }
+    else{
+        if(signup.contains(errorMsg)){
+        const errorMsg = document.createElement('p');
+        errorMsg.classList.add('error-msg');
+        errorMsg.innerText = 'Passwords do not match';
+        signup.appendChild(errorMsg);}
+    }
 });
