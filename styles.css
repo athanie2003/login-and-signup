@@ -112,3 +112,23 @@ footer{
     opacity: 1;
     pointer-events: auto;
 }
+
+/* when login is successful */
+.end .login{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.end .signup{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.msg{
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn{
+    0% {opacity: 0;}
+    100%{opacity: 1;}
+}
