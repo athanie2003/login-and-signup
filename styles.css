@@ -91,9 +91,10 @@ a{
     color:  rgb(0, 255, 128);
 }
 
-.error-msg{
+footer{
     color: red;
     margin-top: 20px;
+    font-weight: 600;
 }
 
 /* controls which form is shown */

@@ -7,8 +7,10 @@ const loginBtn = login.querySelector('button');
 const signup = document.querySelector('.signup');
 const checkPasswords = signup.querySelectorAll('.pwd');
 const checkEmail = signup.querySelector('.em');
+const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const singupInputs = signup.querySelectorAll('input');
 const signupBtn = signup.querySelector('button');
+const signupErrorMsg = signup.querySelector('footer');
 
 let email, password;
 
@@ -41,20 +43,29 @@ links.forEach(link => {
 
 // submit buttons
 signupBtn.addEventListener('click', () => {
-    // const checkInputs = [...singupInputs];
-    // checkInputs.forEach(input => console.log(`input: ${input.innerText}`))
-    // if(checkInputs.every(input => input.innerText.length > 0))
-    // console.log('not empty')
-    const passwords = [...checkPasswords];
-    if(passwords.every(pwd => pwd.value === passwords[0].value && pwd.value.length > 0)){
-        password = passwords[0].value;
-        body.classList.toggle('switch');
+    if(emailPattern.test(checkEmail.value)){
+        email = checkEmail.value;
+        const passwords = [...checkPasswords];
+        if(passwords.every(pwd => pwd.value === passwords[0].value && pwd.value.length > 0 && passwords[0].value.length > 7)){
+            password = passwords[0].value;
+            checkPasswords.forEach(pwd => pwd.value = '');
+            signupErrorMsg.innerText = '';
+            checkEmail.value = '';
+            body.classList.toggle('switch');
+        }
+        else{
+            if(!passwords.every(pwd => pwd.value.length > 0)){
+                signupErrorMsg.innerText = '*** Password fields not complete ***';
+            }
+            else if(passwords[0].value.length < 7){
+                signupErrorMsg.innerText = '*** Passwords must be at least 7 characters ***'
+            }
+            else{
+                signupErrorMsg.innerText = '*** Passwords do not match ***';
+            }
+        }
     }
     else{
-        if(signup.contains(errorMsg)){
-        const errorMsg = document.createElement('p');
-        errorMsg.classList.add('error-msg');
-        errorMsg.innerText = 'Passwords do not match';
-        signup.appendChild(errorMsg);}
+        signupErrorMsg.innerText = '*** Not a valid email ***'
     }
 });
